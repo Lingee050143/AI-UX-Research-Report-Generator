@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI UX 리서치 보고서 생성기</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>🔍 AI UX 리서치 보고서 생성기</h1>
+      <p class="subtitle">
+        인터뷰 또는 리뷰 데이터를 업로드하면 AI가 자동으로 핵심 인사이트와 UX 리서치 보고서를 작성합니다.
+      </p>
+    </header>
+
+    <!-- Upload Section -->
+    <section class="upload-section card">
+      <h2>📁 데이터 업로드</h2>
+      <p class="hint">지원 형식: <strong>TXT, CSV, JSON</strong> &nbsp;|&nbsp; 최대 크기: <strong>5 MB</strong></p>
+
+      <div
+        id="dropzone"
+        class="dropzone"
+        role="button"
+        tabindex="0"
+        aria-label="파일 업로드 영역. 클릭하거나 파일을 드래그하세요."
+      >
+        <div class="dropzone-icon">📂</div>
+        <p>파일을 이곳에 드래그하거나 <span class="link">클릭하여 선택</span>하세요</p>
+        <input type="file" id="fileInput" accept=".txt,.csv,.json" hidden aria-hidden="true" />
+      </div>
+
+      <div id="fileInfo" class="file-info hidden">
+        <span id="fileName"></span>
+        <button id="clearFile" class="btn-icon" aria-label="파일 제거">✕</button>
+      </div>
+
+      <button id="generateBtn" class="btn-primary" disabled>
+        <span id="btnText">보고서 생성</span>
+        <span id="btnSpinner" class="spinner hidden" aria-hidden="true"></span>
+      </button>
+    </section>
+
+    <!-- Error Banner -->
+    <div id="errorBanner" class="error-banner hidden" role="alert"></div>
+
+    <!-- Report Section -->
+    <section id="reportSection" class="report-section card hidden">
+      <div class="report-header">
+        <h2>📄 UX 리서치 보고서</h2>
+        <div class="report-actions">
+          <button id="copyMdBtn" class="btn-secondary" title="마크다운 복사">📋 복사</button>
+          <button id="downloadMdBtn" class="btn-secondary" title="마크다운 다운로드">⬇ 다운로드</button>
+        </div>
+      </div>
+      <div id="reportContent" class="report-content"></div>
+    </section>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

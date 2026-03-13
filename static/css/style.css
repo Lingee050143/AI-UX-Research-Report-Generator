@@ -1,0 +1,238 @@
+/* ── Reset & Base ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: #ede9fe;
+  --secondary: #6b7280;
+  --success: #059669;
+  --danger: #dc2626;
+  --danger-light: #fef2f2;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+/* ── Header ───────────────────────────────────── */
+.header { text-align: center; margin-bottom: 2.5rem; }
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: .5rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ── Card ─────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.card h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: .4rem;
+}
+
+.hint {
+  color: var(--text-muted);
+  font-size: .875rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Dropzone ─────────────────────────────────── */
+.dropzone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  color: var(--text-muted);
+}
+
+.dropzone:hover,
+.dropzone.drag-over {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.dropzone-icon { font-size: 2.5rem; margin-bottom: .5rem; }
+.dropzone p   { font-size: .95rem; }
+.link         { color: var(--primary); text-decoration: underline; font-weight: 600; }
+
+/* ── File Info ────────────────────────────────── */
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  background: var(--primary-light);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  padding: .6rem 1rem;
+  margin-top: 1rem;
+  font-size: .9rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.file-info span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--primary);
+  padding: 0 .25rem;
+  line-height: 1;
+}
+.btn-icon:hover { color: var(--danger); }
+
+/* ── Buttons ──────────────────────────────────── */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  width: 100%;
+  margin-top: 1.25rem;
+  padding: .85rem 1.5rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, opacity .2s;
+}
+
+.btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+
+.btn-secondary {
+  padding: .45rem .9rem;
+  background: var(--surface);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  font-size: .85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s;
+}
+.btn-secondary:hover { background: var(--primary-light); }
+
+/* ── Spinner ──────────────────────────────────── */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255,255,255,.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Error Banner ─────────────────────────────── */
+.error-banner {
+  background: var(--danger-light);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  border-radius: 8px;
+  padding: .9rem 1.25rem;
+  font-size: .95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Report Section ───────────────────────────── */
+.report-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.report-actions { display: flex; gap: .5rem; }
+
+/* ── Report Content (prose) ───────────────────── */
+.report-content { line-height: 1.8; font-size: .975rem; }
+
+.report-content h1,
+.report-content h2,
+.report-content h3 {
+  margin-top: 1.6rem;
+  margin-bottom: .5rem;
+  color: var(--text);
+}
+
+.report-content h1 { font-size: 1.4rem; }
+.report-content h2 { font-size: 1.2rem; border-bottom: 1px solid var(--border); padding-bottom: .35rem; }
+.report-content h3 { font-size: 1.05rem; }
+
+.report-content p  { margin-bottom: .85rem; }
+.report-content ul,
+.report-content ol { margin: .5rem 0 .85rem 1.5rem; }
+.report-content li { margin-bottom: .3rem; }
+
+.report-content strong { color: var(--primary); }
+.report-content code   { background: #f1f5f9; padding: .1rem .35rem; border-radius: 4px; font-size: .9em; }
+.report-content pre    { background: #f1f5f9; padding: 1rem; border-radius: 8px; overflow-x: auto; margin-bottom: .85rem; }
+
+.report-content blockquote {
+  border-left: 4px solid var(--primary);
+  padding: .5rem 1rem;
+  color: var(--text-muted);
+  margin: .5rem 0 .85rem;
+  background: var(--primary-light);
+  border-radius: 0 8px 8px 0;
+}
+
+.report-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: .9rem;
+}
+.report-content th,
+.report-content td { border: 1px solid var(--border); padding: .45rem .75rem; text-align: left; }
+.report-content th { background: var(--primary-light); font-weight: 700; }
+
+/* ── Helpers ──────────────────────────────────── */
+.hidden { display: none !important; }
